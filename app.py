@@ -1,10 +1,14 @@
 import joblib
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
-@app.route('/happy', methods=['POST'])
-def get_happy():
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/predict', methods=['POST'])
+def predict():
     features = request.json
     X = []
     X.append(features['infoavail'])
