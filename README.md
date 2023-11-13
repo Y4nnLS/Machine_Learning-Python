@@ -6,9 +6,9 @@
 <table align='center'>
   <tr>
     <td align="center">
-        <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/101208372?v=4" width="100px;" alt=""/><br /><sub><b>Yann Lucas</b></sub></a><br />👨‍🚀</a></td>
+        <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/101208372?v=4" width="100px;" alt=""/><br /><sub><b><a href="https://github.com/Y4nnLS">Yann Lucas</a></b></sub></a><br />👨‍🚀</a></td>
     <td align="center">
-        <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/60533993?v=4" width="100px;" alt=""/><br /><sub><b>Felipe Pinheiro</b></sub></a><br />👨‍🚀</td>
+        <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/60533993?v=4" width="100px;" alt=""/><br /><sub><b><a href="https://github.com/Ypsiloon">Felipe Pinheiro</a></b></sub></a><br />👨‍🚀</td>
   </table>
 
 Tabela de conteúdos
