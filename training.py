@@ -1,38 +1,29 @@
-from flask import Flask, request, jsonify
 import pandas as pd
+from sklearn import tree
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
 import joblib
 
-app = Flask(__name__)
+# Carregando os dados do arquivo CSV
+data = pd.read_csv('happydata.csv')
 
-# Carregar o conjunto de dados
-data = pd.read_csv("happydata.csv")
+# Definindo as variáveis de entrada (X) e saída (y)
+X = data.drop('happy', axis=1)  # Assume que 'happy' é a coluna de saída
+y = data['happy']
 
-# Dividir o conjunto de dados em recursos (X) e rótulos (y)
-X = data[["infoavail","housecost","schoolquality","policetrust","streetquality","events"]]
-y = data["happy"]
+# Dividindo os dados em conjunto de treinamento e teste
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Treinar um modelo (Random Forest) - Substitua pelo modelo apropriado
-model = RandomForestClassifier()
-model.fit(X, y)
+# Criando e treinando o modelo
+model = tree.DecisionTreeClassifier()
+model.fit(X_train, y_train)
 
-# Salvar o modelo treinado
-joblib.dump(model, "model.joblib")
+# Salvando o modelo treinado em um arquivo joblib
+joblib.dump(model, 'model.joblib')
 
-@app.route('/predict', methods=['POST'])
-def predict():
-    data = request.get_json()
-    features = [
-        data['infoavail'],
-        data['housecost'],
-        data['schoolquality'],
-        data['policetrust'],
-        data['streetquality'],
-        data['events']
-    ]
-    prediction = model.predict([features])
-    return jsonify({'prediction': prediction[0]})
+# Fazendo previsões no conjunto de teste
+y_pred = model.predict(X_test)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# Avaliando a precisão do modelo
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Acurácia do modelo: {accuracy}')

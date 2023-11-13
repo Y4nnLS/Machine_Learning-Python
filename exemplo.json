@@ -1,8 +1,8 @@
 {
-    "infoavail" : 3,
+    "infoavail" : 5,
     "housecost" : 3,
     "schoolquality" : 3,
-    "policetrust" : 4,
-    "streetquality" : 2,
-    "events" : 4
+    "policetrust" : 3,
+    "streetquality" : 3,
+    "events" : 5
 }

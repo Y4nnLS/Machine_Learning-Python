@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enviar Dados para API REST</title>
+</head>
+<body>
+    <h1>Enviar Dados para API REST</h1>
+
+    <form id="myForm">
+        <label for="SepalLengthCm">Sepal Length (cm):</label>
+        <input type="text" id="SepalLengthCm" name="SepalLengthCm" value="7.2"><br>
+
+        <label for="SepalWidthCm">Sepal Width (cm):</label>
+        <input type="text" id="SepalWidthCm" name="SepalWidthCm" value="3.0"><br>
+
+        <label for="PetalLengthCm">Petal Length (cm):</label>
+        <input type="text" id="PetalLengthCm" name="PetalLengthCm" value="5.8"><br>
+
+        <label for="PetalWidthCm">Petal Width (cm):</label>
+        <input type="text" id="PetalWidthCm" name="PetalWidthCm" value="1.6"><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <p id="responseMessage"></p>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+
+            // Converte os dados do formulário para um objeto JSON
+            const jsonData = {};
+            formData.forEach((value, key) => {
+                jsonData[key] = value;
+            });
+
+            // Envia os dados para a API REST
+            fetch('http://127.0.0.1:5000/iris', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("responseMessage").textContent = "Resposta da API: " + JSON.stringify(data);
+            })
+            .catch(error => {
+                document.getElementById("responseMessage").textContent = "Erro: " + error.message;
+            });
+        });
+    </script>
+</body>
+</html>
