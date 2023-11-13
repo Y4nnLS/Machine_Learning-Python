@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <title>Machine Learning</title>
+</head>
+
+<body>
+    <div class="card__inserir">
+        <div class='lista'>
+            <h1>Enviar Dados para API REST</h1>
+
+            <form id="myForm">
+                <label for="infoavail">Infoavail (1 a 5):</label><br>
+                <input type="text" id="infoavail" name="infoavail"><br><br>
+
+                <label for="housecost">House Cost (1 a 5):</label><br>
+                <input type="text" id="housecost" name="housecost"><br><br>
+
+                <label for="schoolquality">School Quality (1 a 5):</label><br>
+                <input type="text" id="schoolquality" name="schoolquality"><br><br>
+
+                <label for="policetrust">Police Trust (1 a 5):</label><br>
+                <input type="text" id="policetrust" name="policetrust"><br><br>
+
+                <label for="streetquality">Street Quality (1 a 5):</label><br>
+                <input type="text" id="streetquality" name="streetquality"><br><br>
+
+                <label for="events">Events (1 a 5):</label><br>
+                <input type="text" id="events" name="events"><br><br>
+
+                <input type="submit" value="Enviar">
+            </form>
+
+            <p id="responseMessage"></p>
+
+            <script>
+                document.getElementById("myForm").addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(this);
+        
+                    // Converte os dados do formulário para um objeto JSON
+                    const jsonData = {};
+                    formData.forEach((value, key) => {
+                        jsonData[key] = value;
+                    });
+        
+                    // Envia os dados para a API REST
+                    fetch('http://127.0.0.1:5000/iris', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(jsonData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById("responseMessage").textContent = "Resposta da API: " + JSON.stringify(data);
+                    })
+                    .catch(error => {
+                        document.getElementById("responseMessage").textContent = "Erro: " + error.message;
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>

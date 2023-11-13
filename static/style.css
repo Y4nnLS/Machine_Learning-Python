@@ -1,0 +1,53 @@
+body {
+    background-color: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    columns: 3;
+}
+
+.card__listar, .card__inserir, .card__buscar{
+    --gray: rgba(229, 231, 235, 1);
+    width: auto;
+    height: auto;
+    display: flex;
+    grid-gap: 1.25rem;
+    gap: 1.25rem;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1.5rem;
+}
+
+.lista {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s ease;
+}
+
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.input-box{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+input{
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 90%;
+    outline: none;
+}
+
+input:hover{
+    background-color: #c9c8c8;
+}
