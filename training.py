@@ -15,8 +15,20 @@ y = data['happy']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Criando e treinando o modelo
-model = tree.DecisionTreeClassifier()
+# model = tree.DecisionTreeClassifier()
+# model.fit(X_train, y_train)
+
+#from sklearn.ensemble import RandomForestClassifier
+# model = RandomForestClassifier(max_depth=2, random_state=0)
+# model.fit(X_train, y_train)
+
+from sklearn.neighbors import KNeighborsClassifier
+model = KNeighborsClassifier(n_neighbors=3)
 model.fit(X_train, y_train)
+
+# from sklearn.naive_bayes import GaussianNB
+# model = GaussianNB()
+# model.fit(X, y)
 
 # Salvando o modelo treinado em um arquivo joblib
 joblib.dump(model, 'model.joblib')

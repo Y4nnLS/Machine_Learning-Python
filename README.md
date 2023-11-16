@@ -94,8 +94,20 @@ As seguintes ferramentas foram usadas na construção do projeto:
 | <img src="static/scikit-learn.png" height='30px' align='center'> |[Scikit-Learn](https://scikit-learn.org/stable/)| 
 
 ## DataSet
-De DataSet estamos utilizando o Happiness Classification Dataset
 - [Link do dataset](https://www.kaggle.com/datasets/priyanshusethi/happiness-classification-dataset/data)
+
+De DataSet estamos utilizando o Happiness Classification Dataset, onde temos 6 atributos de entrada e um de saida, sendo eles:
+
+#### Entrada
+- infoavail = the availability of information about the city services
+- housecost = the cost of housing
+- schoolquality = the overall quality of public schools
+- policetrust = your trust in the local police
+- streetquality = the maintenance of streets and sidewalks
+- events = the availability of social community events
+
+#### Saída
+- happy = decision attribute (D) with values 0 (unhappy) and 1 (happy) 
 
 ## Comandos
 

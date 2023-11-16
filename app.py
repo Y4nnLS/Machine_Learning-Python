@@ -18,7 +18,7 @@ def predict():
     X.append(features['streetquality'])
     X.append(features['events'])
 
-    model = joblib.load('model.joblib')
+    model = joblib.load('C:\\Users\\yann_\\OneDrive\\Documentos\\GitHub\\Machine_Learning-Python\\model.joblib')
     y_pred = model.predict( [X] )
     happy = [0, 1]
     return jsonify( { 'class' : happy[y_pred[0]] } )

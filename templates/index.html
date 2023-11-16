@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
     <title>Machine Learning</title>
+    <style>
+        /* Adicione estilos conforme necessário */
+        .response-container {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,8 +43,10 @@
 
                 <input type="submit" value="Enviar">
             </form>
-
-            <p id="responseMessage"></p>
+            <div class="response-container">
+                <h3>Resposta da API</h3>
+                <p id="responseMessage"></p>
+            </div>
 
             <script>
                 document.getElementById("myForm").addEventListener("submit", function (e) {
