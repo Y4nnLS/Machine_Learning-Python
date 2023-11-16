@@ -26,4 +26,4 @@ y_pred = model.predict(X_test)
 
 # Avaliando a precisão do modelo
 accuracy = accuracy_score(y_test, y_pred)
-print(f'Acurácia do modelo: {accuracy}')
+print(f'Acurácia do modelo: {accuracy:.2f}')

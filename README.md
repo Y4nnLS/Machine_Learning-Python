@@ -93,6 +93,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 | <img src="static/logo-small.2a411bc6.svg" height='30px' align='center'> |[Requests](https://pypi.org/project/requests/)| 
 | <img src="static/scikit-learn.png" height='30px' align='center'> |[Scikit-Learn](https://scikit-learn.org/stable/)| 
 
+## DataSet
+De DataSet estamos utilizando o Happiness Classification Dataset
+- [Link do dataset](https://www.kaggle.com/datasets/priyanshusethi/happiness-classification-dataset/data)
 
 ## Comandos
 
